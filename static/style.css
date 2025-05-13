@@ -1,0 +1,88 @@
+/* General styles for chat container and messages */
+body {
+  font-family: Arial, sans-serif;
+  background: #e0f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.chat-container {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+/* Chat box styles */
+.chat-box {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #fafafa;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+  text-align: left;
+}
+
+/* Message styles */
+.message {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  max-width: 80%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.user {
+  background-color: #80deea;
+  text-align: right;
+  margin-left: auto;
+}
+
+.bot {
+  background-color: #ffebee;
+  text-align: left;
+  margin-right: auto;
+}
+
+/* Loading message style */
+.bot.loading {
+  background-color: #e3e3e3;
+  text-align: center;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+/* Scroll smoothness */
+.chat-box {
+  scroll-behavior: smooth;
+}
+
+/* Emoji icons */
+img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}

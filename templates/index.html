@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Chatbot 🌤️</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="https://openweathermap.org/img/wn/01d.png" type="image/png">
+</head>
+<body>
+  <div class="chat-container">
+    <h2>🌤️ Weather Chatbot</h2>
+    <div id="chat-box" class="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Ask about the weather..." onkeypress="handleKey(event)">
+  </div>
+
+  <script>
+    async function sendMessage(message) {
+      const chatBox = document.getElementById('chat-box');
+
+      // Add user message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user';
+      userMsg.innerText = message;
+      chatBox.appendChild(userMsg);
+
+      // Scroll down
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Show loading message
+      const loadingMsg = document.createElement('div');
+      loadingMsg.className = 'message bot loading';
+      loadingMsg.innerText = "Bot is typing... ⏳";
+      chatBox.appendChild(loadingMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Fetch response
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: message})
+      });
+
+      const data = await res.json();
+
+      // Remove loading message
+      chatBox.removeChild(loadingMsg);
+
+      // Add bot reply
+      const botMsg = document.createElement('div');
+      botMsg.className = 'message bot';
+      botMsg.innerHTML = data.reply;
+      chatBox.appendChild(botMsg);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function handleKey(event) {
+      if (event.key === "Enter") {
+        const input = document.getElementById('user-input');
+        const message = input.value.trim();
+        if (message) {
+          sendMessage(message);
+          input.value = '';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
