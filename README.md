@@ -21,17 +21,23 @@ A friendly and interactive weather chatbot built with **Flask**, **JavaScript**,
 ## 🧑‍💻 How to Run Locally
 
 1. **Clone the Repository**
-
+```
 git clone https://github.com/Abkirthi/weather_chatbot.git
+```
+```
 cd weather_chatbot
-
+```
 
 2. **Set Up Environment**
-
+```
 python -m venv venv
+```
+```
 source venv/bin/activate # For Windows: venv\Scripts\activate
+```
+```
 pip install -r requirements.txt
-
+```
 
 3. **Add Your API Key**
 - Create a `.env` file and add:
