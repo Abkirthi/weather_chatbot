@@ -46,9 +46,9 @@ pip install -r requirements.txt
   ```
 
 4. **Run the App**
-
+```
 flask run
-
+```
 
 5.**Open your browser** at `http://localhost:5000`
 
@@ -65,4 +65,4 @@ flask run
 
 ## 🙋‍♀️ Author
 
-Made with ❤️ by [Athi Bala Kiruthikaa M](https://github.com/AbKirthi)
+Made by [Athi Bala Kiruthikaa M](https://github.com/AbKirthi)
